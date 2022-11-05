@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!-- this :: title means: <title></title>
+     this :: body means: <body></body>-->
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{this :: title}, ~{this :: body})}">
+<head>
+    <title>Top Page | Assignment Manager</title>
+</head>
+<body>
+<h1 class="mt-3"> Assignment Manager</h1>
+<ul>
+    <li>
+        <a href="./issues/list.html" th:href="@{/issues}">Assignment Overview</a>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{this :: title}, ~{this :: body})}">
+<head>
+    <title>Create Assignment | Assignment Manager</title>
+</head>
+<body>
+<h1 class="mt-4">Create An Assignment</h1>
+<form action="#" th:action="@{/issues}" th:method="post" th:object="${issueForm}">
+    <div class="mb-3">
+        <label for="summaryInput" class="form-label">Overview</label>
+        <input type="text" id="summaryInput" th:field="*{summary}" class="form-control"
+        th:classappend="${#fields.hasErrors('summary')} ? is-invalid">
+        <p th:if="${#fields.hasErrors('summary')}" th:errors="*{summary}" class="invalid-feedback">(errors)</p>
+    </div>
+    <br>
+    <div class="mb-3">
+        <label for="descriptionInput" class="form-label">Description</label>
+        <textarea id="descriptionInput" row="10" th:field="*{description}" class="form-control"
+                  th:classappend="${#fields.hasErrors('summary')} ? is-invalid"></textarea>
+        <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="invalid-feedback">(errors)</p>
+
+    </div>
+    <br>
+    <div>
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a href="./list.html" th:href="@{/issues}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+</body>
+</html>
