@@ -9,7 +9,11 @@
 <a href="./list.html" th:href="@{/issues}">Back to Overview</a>
 <div>
     <h2 th:text="${issue.summary}">(summary)</h2>
-    <p th:text="${issue.description}">(description)</p>
+    <br>
+    <h4>詳細：</h4>
+    <div>
+        <p th:text="${issue.description}">(description)</p>
+    </div>
 </div>
 </body>
 </html>
